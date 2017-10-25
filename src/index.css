@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+
+.results {
+
+}
+
+.ColorGroup {
+	display: block;
+    margin: 20px 0;
+}
+
+.ColorBox {
+	color: white;
+	display: inline-block;
+	height: 100px;
+	margin: 5px;
+	width: 100px;
+}
