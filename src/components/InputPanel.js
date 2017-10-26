@@ -1,5 +1,8 @@
 import React  from 'react';
 
+import { connect } from 'react-redux'; 
+import { addColor } from '../actionCreators/colors';
+
 const DEFAULTS = {
             color: '#ff0000',
             amount: 2,
@@ -46,9 +49,12 @@ class InputPanel extends React.Component {
     }
 
     handleSubmit(event) {
-        this.props.onPanelSubmit(this.state);
+        let reduxAction =  addColor(this.state);
+        this.props.dispatch(reduxAction);
         event.preventDefault();
     }
 }
 
-export default InputPanel;
+export default connect()(InputPanel);
+
+

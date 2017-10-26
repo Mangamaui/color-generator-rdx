@@ -4,24 +4,13 @@ import './App.css';
 import InputPanel from './components/InputPanel';
 import ColorGroup from './components/ColorGroup';
 
-class App extends Component {
-  constructor(props) {
-    super(props)
+import { connect } from 'react-redux';
 
-    this.state = {list: [] };
-    this.handleInputPanelSubmit = this.handleInputPanelSubmit.bind(this);
-  }
-
-  handleInputPanelSubmit(obj) {
-    this.setState(
-      {list: this.state.list.concat([obj])}
-    );
-
-  }
+class App extends React.Component {
 
   render() {
 
-    const LIST = this.state.list.reverse().map(function(item, index) {
+    const LIST = this.props.list.slice(-3).map(function(item, index) {
         return <ColorGroup key={index} color={item.color} amount={item.amount} steps={item.steps} />;
     });
 
@@ -40,4 +29,8 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(function(state) {
+  return {
+    list: state.colors.collection
+  };
+})(App);
