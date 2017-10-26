@@ -5,9 +5,6 @@ import COLOR from '../lib/color';
 
 
 class ColorGroup extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     generateNewGroup () {
         let amount = this.props.amount;
@@ -16,8 +13,8 @@ class ColorGroup extends React.Component {
 
         console.log("amount " + amount, "steps " + steps);
         const HSL = COLOR.convertHexToHSL(hexColor);
-        amount = parseInt(amount);
-        steps = parseInt(steps);
+        amount = parseInt(amount, 10);
+        steps = parseInt(steps, 10);
 
         let luminace = (HSL[2] - (amount*steps));
         const GROUP = [];
