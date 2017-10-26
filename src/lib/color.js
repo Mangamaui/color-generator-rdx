@@ -25,23 +25,23 @@ const COLOR = {
         return Math.max(a, b);
         });
 
-        let luminace = (MAX + MIN) / 2;
+        let luminance = (MAX + MIN) / 2;
 
-        let saturation = COLOR.calculateSaturation(MIN, MAX, luminace);
+        let saturation = COLOR.calculateSaturation(MIN, MAX, luminance);
 
         let hue = COLOR.calculateHue(RGB, MIN, MAX);
 
-        //convert luminace to percentage
-        luminace = Math.floor(luminace*100);
+        //convert luminance to percentage
+        luminance = Math.floor(luminance*100);
 
-        return [hue, saturation, luminace];
+        return [hue, saturation, luminance];
     },
 
-    calculateSaturation: function (MIN, MAX, luminace) {
+    calculateSaturation: function (MIN, MAX, luminance) {
         let result = null;
 
         if (MIN != MAX) {
-            if(luminace < 0.5) {
+            if(luminance < 0.5) {
                 result = (MAX-MIN)/ (MAX+MIN);
             } else {
                 result = (MAX-MIN)/(2.0-MAX-MIN);
@@ -98,6 +98,7 @@ const COLOR = {
         const HEX = parseInt(selectedColor, 16); 
         return HEX;
     },
+
 }
 
 export default COLOR;
