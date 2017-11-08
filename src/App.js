@@ -20,7 +20,7 @@ class App extends React.Component {
           <h1>Color Generator</h1>
         </header>
 
-        <InputPanel onPanelSubmit={this.handleInputPanelSubmit} />
+        <InputPanel />
         <div className="results">
           {LIST}
         </div>

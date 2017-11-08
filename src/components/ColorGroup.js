@@ -11,14 +11,13 @@ class ColorGroup extends React.Component {
         let steps = this.props.steps;
         let hexColor = this.props.color;
 
-        console.log("amount " + amount, "steps " + steps);
         const HSL = COLOR.convertHexToHSL(hexColor);
         amount = parseInt(amount, 10);
         steps = parseInt(steps, 10);
 
         let luminace = (HSL[2] - (amount*steps));
         const GROUP = [];
-        
+
         for(let i = 0; i <= (amount*2); ++i) {
             GROUP.push(<ColorBox key={i+1} color={`hsl(${HSL[0]}, ${HSL[1]}%, ${luminace}%)`} />);
             luminace+=steps;
